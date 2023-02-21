@@ -38,3 +38,20 @@ function changeBoxColor(gridBoxes) {
 let gridBoxes = document.querySelectorAll(".square");
 
 changeBoxColor(gridBoxes);
+
+const btn = document.querySelector(".btn");
+
+btn.addEventListener("click", () => {
+  let size = prompt("Enter Grid size less then or equal to 100");
+  while (size > 100) {
+    size = prompt("Enter Grid size less then or equal to 100");
+  }
+  while (grid.firstChild) {
+    grid.removeChild(grid.firstChild);
+  }
+
+  createGrid(size);
+  let gridBoxes = document.querySelectorAll(".square");
+
+  changeBoxColor(gridBoxes);
+});
