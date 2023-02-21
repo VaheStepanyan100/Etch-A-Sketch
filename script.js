@@ -12,3 +12,29 @@ function createGrid(size) {
 }
 
 createGrid(16);
+
+function changeBoxColor(gridBoxes) {
+  gridBoxes.forEach((box) => {
+    let r = Math.floor(Math.random() * 256);
+    let g = Math.floor(Math.random() * 256);
+    let b = Math.floor(Math.random() * 256);
+    let r1 = r;
+    let g2 = g;
+    let b3 = b;
+    box.addEventListener("mouseover", () => {
+      let color = `rgb(${r}, ${g}, ${b})`;
+
+      if (r > 0 || g > 0 || b || 0) {
+        r -= (r1 * 10) / 100;
+        g -= (g2 * 10) / 100;
+        b -= (b3 * 10) / 100;
+      }
+
+      box.style.backgroundColor = color;
+    });
+  });
+}
+
+let gridBoxes = document.querySelectorAll(".square");
+
+changeBoxColor(gridBoxes);
